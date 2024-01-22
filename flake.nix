@@ -15,7 +15,7 @@
   outputs = inputs: let
     # Functions for accessing pkgs per system.
     perSystem = f: inputs.nixpkgs.lib.genAttrs (import inputs.systems) f;
-    systemPkgs = system: import inputs.nixpkgs { inherit system; };
+    systemPkgs = system: import inputs.nixpkgs {inherit system;};
     perSystemPkgs = f: perSystem (system: f (systemPkgs system));
 
     # Attributes from the dasy pyproject.toml.
