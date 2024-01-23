@@ -24,6 +24,7 @@
     packages = perSystemPkgs (pkgs: let
       pypkgs = pkgs.python3Packages;
       selfpkgs = inputs.self.packages.${pkgs.system};
+      buildDasyPackage = inputs.self.lib.${pkgs.system}.buildDasyPackage;
     in {
       argparse = pypkgs.buildPythonPackage rec {
         pname = "argparse";
@@ -153,7 +154,29 @@
         ];
       };
 
+      hello-world = buildDasyPackage {
+        src = "${inputs.dasy-src}";
+        pname = "hello-world";
+        version = "0.1.0";
+        contracts = ["examples/hello_world.dasy"];
+      };
+
+      dasy-examples = buildDasyPackage {
+        src = "${inputs.dasy-src}";
+        pname = "dasy-examples";
+        version = "0.1.0";
+        contracts = ["examples"];
+        formats = ["abi" "bytecode" "abi_python" "metadata"];
+      };
+
       default = selfpkgs.dasy;
+    });
+
+    lib = perSystemPkgs (pkgs: {
+      # A function for building dasy packages. See `hello-world` and `dasy-examples` above.
+      buildDasyPackage = pkgs.callPackage ./build-dasy-package.nix {
+        inherit (inputs.self.packages.${pkgs.system}) dasy;
+      };
     });
 
     devShells = perSystemPkgs (pkgs: {
