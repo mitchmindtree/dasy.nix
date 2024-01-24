@@ -19,7 +19,7 @@ final: prev: {
       trie = prev.python3Packages.callPackage ./packages/trie.nix { };
 
       # Add the `dasy` package itself!
-      dasy = prev.python3Packages.callPackage ./packages/dasy.nix {
+      dasy = prev.python3Packages.callPackage ./default.nix {
         inherit (final.python3Packages) argparse dasy-hy titanoboa;
       };
     };
