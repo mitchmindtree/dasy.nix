@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "dasy-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705913389,
-        "narHash": "sha256-RdpQ6V0XAnrIqttZrdp5/vex7vZBsIV83EX/UdY26mw=",
-        "owner": "mitchmindtree",
-        "repo": "dasy",
-        "rev": "20ab2926de4a441c8717cc9d989b5d737f303e80",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mitchmindtree",
-        "ref": "poetry-lock",
-        "repo": "dasy",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1705677747,
@@ -35,7 +18,6 @@
     },
     "root": {
       "inputs": {
-        "dasy-src": "dasy-src",
         "nixpkgs": "nixpkgs",
         "systems": "systems"
       }
