@@ -23,8 +23,8 @@
 } @ args: let
   # A map from format to the suffix to add to the file path.
   formatSuffix = {
-    bytecode = ".bin";
-    bytecode_runtime = ".bin";
+    bytecode = ".hex";
+    bytecode_runtime = ".hex";
     abi = "-abi.json";
     abi_python = "-abi.py";
     source_map = "-source-map.vy";
