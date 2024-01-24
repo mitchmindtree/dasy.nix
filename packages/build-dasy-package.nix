@@ -2,7 +2,6 @@
 , lib
 , stdenv
 , symlinkJoin
-,
 }: { name ? "${args.pname}-${args.version}"
    , src ? null
    , preUnpack ? null

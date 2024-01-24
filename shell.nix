@@ -1,7 +1,6 @@
 { dasy
 , mkShell
 , poetry
-,
 }:
 mkShell {
   inputsFrom = [

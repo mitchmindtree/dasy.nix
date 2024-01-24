@@ -9,7 +9,6 @@
 , pluggy
 , titanoboa
 , typing-extensions
-,
 }:
 let
   src = fetchFromGitHub {

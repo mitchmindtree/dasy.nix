@@ -1,7 +1,6 @@
 # An example of packaging all examples from the dasy repo in one package.
 { buildDasyPackage
 , dasy
-,
 }:
 buildDasyPackage {
   src = "${dasy.src}";

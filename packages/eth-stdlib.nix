@@ -2,7 +2,6 @@
 , fetchFromGitHub
 , pycryptodome
 , poetry-core
-,
 }:
 buildPythonPackage rec {
   pname = "eth-stdlib";

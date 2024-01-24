@@ -1,6 +1,5 @@
 { buildPythonPackage
 , fetchPypi
-,
 }:
 buildPythonPackage rec {
   pname = "py-evm";

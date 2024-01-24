@@ -2,7 +2,6 @@
 , colorama
 , fetchPypi
 , funcparserlib
-,
 }:
 buildPythonPackage rec {
   pname = "hy";

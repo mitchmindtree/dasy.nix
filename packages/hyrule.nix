@@ -1,7 +1,6 @@
 { buildPythonPackage
 , fetchPypi
 , hy
-,
 }:
 buildPythonPackage rec {
   pname = "hyrule";

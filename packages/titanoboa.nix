@@ -10,7 +10,6 @@
 , setuptools
 , trie
 , vyper
-,
 }:
 buildPythonPackage rec {
   pname = "titanoboa";

@@ -1,7 +1,6 @@
 # An example of packaging the hello_world.dasy example from the dasy repo.
 { buildDasyPackage
 , dasy
-,
 }:
 buildDasyPackage {
   src = "${dasy.src}";
