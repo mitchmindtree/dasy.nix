@@ -1,8 +1,8 @@
-{
-  buildPythonPackage,
-  colorama,
-  fetchPypi,
-  funcparserlib,
+{ buildPythonPackage
+, colorama
+, fetchPypi
+, funcparserlib
+,
 }:
 buildPythonPackage rec {
   pname = "hy";

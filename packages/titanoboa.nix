@@ -1,16 +1,16 @@
-{
-  buildPythonPackage,
-  eth-account,
-  eth-stdlib,
-  fetchPypi,
-  hypothesis,
-  hyrule,
-  py-evm,
-  pytest,
-  rich,
-  setuptools,
-  trie,
-  vyper,
+{ buildPythonPackage
+, eth-account
+, eth-stdlib
+, fetchPypi
+, hypothesis
+, hyrule
+, py-evm
+, pytest
+, rich
+, setuptools
+, trie
+, vyper
+,
 }:
 buildPythonPackage rec {
   pname = "titanoboa";

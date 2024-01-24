@@ -1,16 +1,17 @@
-{
-  argparse,
-  black,
-  buildPythonPackage,
-  dasy-hy,
-  eth-abi,
-  eth-typing,
-  fetchFromGitHub,
-  pathspec,
-  pluggy,
-  titanoboa,
-  typing-extensions,
-}: let
+{ argparse
+, black
+, buildPythonPackage
+, dasy-hy
+, eth-abi
+, eth-typing
+, fetchFromGitHub
+, pathspec
+, pluggy
+, titanoboa
+, typing-extensions
+,
+}:
+let
   src = fetchFromGitHub {
     owner = "z80dev";
     repo = "dasy";
@@ -19,20 +20,20 @@
   };
   pyproject = builtins.fromTOML (builtins.readFile "${src}/pyproject.toml");
 in
-  buildPythonPackage {
-    inherit src;
-    pname = pyproject.tool.poetry.name;
-    version = pyproject.tool.poetry.version;
-    format = "pyproject";
-    propagatedBuildInputs = [
-      argparse
-      black
-      dasy-hy
-      eth-abi
-      eth-typing
-      pathspec
-      pluggy
-      titanoboa
-      typing-extensions
-    ];
-  }
+buildPythonPackage {
+  inherit src;
+  pname = pyproject.tool.poetry.name;
+  version = pyproject.tool.poetry.version;
+  format = "pyproject";
+  propagatedBuildInputs = [
+    argparse
+    black
+    dasy-hy
+    eth-abi
+    eth-typing
+    pathspec
+    pluggy
+    titanoboa
+    typing-extensions
+  ];
+}

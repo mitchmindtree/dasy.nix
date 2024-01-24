@@ -1,7 +1,7 @@
-{
-  buildPythonPackage,
-  fetchPypi,
-  hy,
+{ buildPythonPackage
+, fetchPypi
+, hy
+,
 }:
 buildPythonPackage rec {
   pname = "hyrule";

@@ -1,8 +1,8 @@
-{
-  buildPythonPackage,
-  fetchFromGitHub,
-  pycryptodome,
-  poetry-core,
+{ buildPythonPackage
+, fetchFromGitHub
+, pycryptodome
+, poetry-core
+,
 }:
 buildPythonPackage rec {
   pname = "eth-stdlib";

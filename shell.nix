@@ -1,7 +1,7 @@
-{
-  dasy,
-  mkShell,
-  poetry,
+{ dasy
+, mkShell
+, poetry
+,
 }:
 mkShell {
   inputsFrom = [
