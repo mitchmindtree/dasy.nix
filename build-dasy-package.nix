@@ -73,7 +73,7 @@
       map buildDasyContract contractsRelative
     else if isDasyFile fullPath
     then [(buildDasyContract item)]
-    else [];
+    else throw "Provided item `${item}` in `contracts` list is not a dasy contract or directory";
 
   # Flatten the list of derivations
   contractDerivations = lib.flatten (map processContractItem contracts);

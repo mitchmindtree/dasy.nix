@@ -1,0 +1,5 @@
+;; Create a string variable that can store maximum 100 characters
+(defvar greet (public (string 100)))
+
+(defn __init__ [] :external
+    (set self/greet "Hello World"))

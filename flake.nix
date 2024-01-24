@@ -13,10 +13,10 @@
   };
 
   outputs = inputs: let
-    # Functions for accessing pkgs per system.
-    perSystem = f: inputs.nixpkgs.lib.genAttrs (import inputs.systems) f;
-    systemPkgs = system: import inputs.nixpkgs {inherit system;};
-    perSystemPkgs = f: perSystem (system: f (systemPkgs system));
+    # Function for accessing pkgs per system.
+    perSystemPkgs = f:
+      inputs.nixpkgs.lib.genAttrs (import inputs.systems)
+      (system: f (import inputs.nixpkgs {inherit system;}));
 
     # Attributes from the dasy pyproject.toml.
     pyproject = builtins.fromTOML (builtins.readFile "${inputs.dasy-src}/pyproject.toml");
@@ -190,6 +190,14 @@
       };
       default = inputs.self.devShells.${pkgs.system}.dasy-dev;
     });
+
+    templates = {
+      new-project = {
+        path = ./templates/new-project;
+        description = "A simple, default, cross-platform new-project template";
+      };
+      default = inputs.self.templates.new-project;
+    };
 
     formatter = perSystemPkgs (pkgs: pkgs.alejandra);
   };
