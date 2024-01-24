@@ -19,11 +19,11 @@
           (system: f (import inputs.nixpkgs { inherit overlays system; }));
     in
     {
-      # Make `my-contract` available in nixpkgs with an overlay.
+      # Make `my-dapp` available in nixpkgs with an overlay.
       overlays.default = final: prev: {
-        my-contract = prev.buildDasyPackage {
+        my-dapp = prev.buildDasyPackage {
           src = ./.;
-          pname = "foo";
+          pname = "my-dapp";
           version = "0.1.0";
           # The following are defaults, but can be uncommented and changed.
           # contracts = ["contracts"]; # Dirs of contracts and/or specific contract files.
@@ -31,24 +31,24 @@
         };
       };
 
-      # Expose `my-contract` as a package output.
+      # Expose `my-dapp` as a package output.
       packages = perSystemPkgs (pkgs: {
-        my-contract = pkgs.my-contract;
-        default = inputs.self.packages.${pkgs.system}.my-contract;
+        my-dapp = pkgs.my-dapp;
+        default = inputs.self.packages.${pkgs.system}.my-dapp;
       });
 
-      # Create a development shell for working on `my-contract`.
+      # Create a development shell for working on `my-dapp`.
       devShells = perSystemPkgs (pkgs: {
-        my-contract-dev = pkgs.mkShell {
+        my-dapp-dev = pkgs.mkShell {
           inputsFrom = [
-            pkgs.my-contract
+            pkgs.my-dapp
           ];
           buildInputs = [
             pkgs.dasy
             # Add other dev tools here, e.g. foundry, etc.
           ];
         };
-        default = inputs.self.devShells.${pkgs.system}.my-contract-dev;
+        default = inputs.self.devShells.${pkgs.system}.my-dapp-dev;
       });
     };
 }

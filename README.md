@@ -21,8 +21,8 @@ A Nix flake for the Dasy experimental lisp-like smart contract language.
 You can create a new standalone dasy project with:
 
 ```console
-nix flake new --template github:mitchmindtree/dasy.nix my-project
-cd my-project
+nix flake new --template github:mitchmindtree/dasy.nix my-dapp
+cd my-dapp
 ```
 
 Test that the project builds with:
@@ -38,9 +38,9 @@ $ tree result
 
 result
 └── contract
-    └── foo
-        ├── foo-abi.json -> /nix/store/pand0klzv4n7r62f0p76v67y8lm9r1j2-contracts-foo.dasy-abi-0.1.0/contract/foo/foo-abi.json
-        └── foo.bin -> /nix/store/4b5qmbdd40xdxwv5f3y0cx1hrsl0rd87-contracts-foo.dasy-bytecode-0.1.0/contract/foo/foo.bin
+    └── my-contract
+        ├── my-contract-abi.json -> /nix/store/czlxsdaajzjigmd4wlhvbp48p59mlf94-contracts-my-contract.dasy-abi-0.1.0/contract/my-contract/my-contract-abi.json
+        └── my-contract.hex -> /nix/store/6s6h60fyhpcrhq1i36ckda60ab446v10-contracts-my-contract.dasy-bytecode-0.1.0/contract/my-contract/my-contract.hex
 ```
 
 Enter a shell with `dasy` available to hack on your project:
@@ -48,5 +48,5 @@ Enter a shell with `dasy` available to hack on your project:
 ```
 $ nix develop
 
-$ dasy contracts/foo.dasy
+$ dasy contracts/my-contract.dasy
 ```

@@ -33,11 +33,11 @@
       };
 
       templates = {
-        new-project = {
-          path = ./templates/new-project;
-          description = "A simple, default, cross-platform new-project template";
+        new-dapp = {
+          path = ./templates/new-dapp;
+          description = "A simple, default, cross-platform new-dapp template";
         };
-        default = inputs.self.templates.new-project;
+        default = inputs.self.templates.new-dapp;
       };
 
       formatter = perSystemPkgs (pkgs: pkgs.nixpkgs-fmt);
